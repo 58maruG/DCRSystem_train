@@ -1,0 +1,23 @@
+[project]
+name = "uv-dcrsystem-train"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "label-studio>=1.23.0",
+    "pynput>=1.8.1",
+    "ultralytics>=8.3.217",
+    "torch==2.6.0+cu124",
+    "torchvision==0.21.0+cu124",
+]
+
+# GPU(CUDA 12.4)版のtorchを使うため、PyTorch公式インデックスを指定
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
+torchvision = { index = "pytorch-cu124" }
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
